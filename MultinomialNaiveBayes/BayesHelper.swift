@@ -9,7 +9,7 @@
 import UIKit
 
 public typealias ClassifierTestFormat = (class: String, trainigData: String)
-public typealias Classifier = (class: String, weight: Decimal)
+public typealias Classifier = (class: String, weight: Double)
 
 class BayesHelper: NSObject {
     public var corpusWords:Dictionary <String,Int> = Dictionary()
@@ -106,14 +106,14 @@ class BayesHelper: NSObject {
         //print(self.classWords)
     }
 
-    func calculateClassScore(sentence:String, classname: String)->Decimal {
+    func calculateClassScore(sentence:String, classname: String)->Double {
         let stmt:NSString = sentence as NSString
         let options: NSLinguisticTagger.Options = [.omitWhitespace, .omitPunctuation, .omitOther]
         let stringRange = NSMakeRange(0, stmt.length)
         let languageMap = ["Latn":["en"]]
         let orthography = NSOrthography(dominantScript: "Latn", languageMap: languageMap)
         
-        var score:Decimal = Decimal()
+        var score = Double()
         
         stmt.enumerateLinguisticTags(
             in: stringRange,
@@ -127,7 +127,7 @@ class BayesHelper: NSObject {
             for classValues in self.classWords[classname]! {
                 if classValues == currentEntity {
                     if let entity = self.corpusWords[currentEntity] {
-                        score +=  1 / Decimal(entity)
+                        score +=  1 / Double(entity)
                     }
                 }
             }
@@ -138,11 +138,11 @@ class BayesHelper: NSObject {
     func classify(sentence:String)->Classifier {
         // now we can find the class with the highest score
         var highClass = String()
-        var highScore = Decimal()
+        var highScore = Double()
         for classValue in  self.classes {
             let score = self.calculateClassScore(sentence: sentence,classname: classValue)
             if score > highScore {
-                highScore = score
+                highScore = Double(round(score))
                 highClass = classValue
             }
         }

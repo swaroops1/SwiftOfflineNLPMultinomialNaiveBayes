@@ -1,5 +1,5 @@
 # SwiftOfflineNLPMultinomialNaiveBayes
-This is a naive classifier, this just determines the words separately and add weights from the occurrences from each sentence of the training data fed. From the weightage calculated it determines the high weighted classifier and throws it.
+This is a naive classifier, this just determines the words separately and add weights from the occurrences from each sentence of the training data fed. From the weightage calculated, it determines the high weighted classifier and throws it.
 
 For the example, I have used 
 

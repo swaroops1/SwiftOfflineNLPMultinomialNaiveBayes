@@ -149,5 +149,18 @@ class BayesHelper: NSObject {
         return (highClass,highScore)
     }
     
+    func determineAction(sentence:String)->String {
+        let question = sentence
+        let options: NSLinguisticTagger.Options = [.omitWhitespace, .omitPunctuation, .joinNames]
+        let schemes = NSLinguisticTagger.availableTagSchemes(forLanguage: "en")
+        let tagger = NSLinguisticTagger(tagSchemes: schemes, options: Int(options.rawValue))
+        var action:String = String()
+        tagger.string = question
+        tagger.enumerateTags(in: NSMakeRange(0, (question as NSString).length), scheme: NSLinguisticTagSchemeNameTypeOrLexicalClass, options: options) { (tag, tokenRange, _, _) in
+            let token = (question as NSString).substring(with: tokenRange)
+            action += ("\(token): \(tag) \n")
+        }
+        return action
+    }
     
 }

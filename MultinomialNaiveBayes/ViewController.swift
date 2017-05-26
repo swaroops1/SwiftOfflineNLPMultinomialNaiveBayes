@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var bayesHelper = BayesHelper()
     @IBOutlet weak var questionField: UITextField!
     @IBOutlet weak var lblResult: UILabel!
+    @IBOutlet weak var lblAction: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,6 +30,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnCheckTappe(_ sender: Any) {
+        self.lblAction.text = self.bayesHelper.determineAction(sentence: questionField.text!)
+        
         let classifyResult = bayesHelper.classify(sentence: questionField.text!)
         self.lblResult.text = String("Class : "+classifyResult.class+" |  Weight: "+String(classifyResult.weight))
     }

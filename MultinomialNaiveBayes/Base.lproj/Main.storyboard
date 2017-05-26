@@ -23,20 +23,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HCh-e4-Ff3">
-                                <rect key="frame" x="16" y="58" width="343" height="30"/>
+                                <rect key="frame" x="16" y="58" width="345" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tal-NI-Z5i">
-                                <rect key="frame" x="165" y="209" width="44" height="30"/>
+                                <rect key="frame" x="166" y="209" width="44" height="30"/>
                                 <state key="normal" title="Check"/>
                                 <connections>
                                     <action selector="btnCheckTappe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="caz-eQ-xvC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="           " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uf-Yh-l4V">
-                                <rect key="frame" x="164" y="323" width="48.5" height="21"/>
+                                <rect key="frame" x="164" y="323" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viQ-Df-9Tn">
+                                <rect key="frame" x="16" y="420" width="343" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="FAE-2I-sRu"/>
+                                    <constraint firstAttribute="width" constant="343" id="YsT-98-aCm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,16 +54,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HCh-e4-Ff3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8EV-Xn-Lrc"/>
                             <constraint firstItem="HCh-e4-Ff3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="AqC-YB-wdg"/>
-                            <constraint firstItem="7Uf-Yh-l4V" firstAttribute="centerX" secondItem="HCh-e4-Ff3" secondAttribute="centerX" id="DAJ-9a-cvd"/>
-                            <constraint firstItem="HCh-e4-Ff3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QuV-nM-mV4"/>
+                            <constraint firstItem="tal-NI-Z5i" firstAttribute="centerX" secondItem="7Uf-Yh-l4V" secondAttribute="centerX" id="TY7-5B-Hsd"/>
                             <constraint firstItem="HCh-e4-Ff3" firstAttribute="centerX" secondItem="tal-NI-Z5i" secondAttribute="centerX" id="XVV-UT-5Kp"/>
                             <constraint firstItem="7Uf-Yh-l4V" firstAttribute="top" secondItem="tal-NI-Z5i" secondAttribute="bottom" constant="84" id="axg-T8-fQZ"/>
+                            <constraint firstItem="viQ-Df-9Tn" firstAttribute="top" secondItem="7Uf-Yh-l4V" secondAttribute="bottom" constant="76" id="cT8-pI-JTe"/>
+                            <constraint firstItem="HCh-e4-Ff3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dYg-S9-aFC"/>
+                            <constraint firstItem="tal-NI-Z5i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uZa-ng-FqR"/>
                             <constraint firstItem="7Uf-Yh-l4V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wa7-Vw-fAp"/>
+                            <constraint firstItem="tal-NI-Z5i" firstAttribute="centerX" secondItem="viQ-Df-9Tn" secondAttribute="centerX" id="xiJ-01-lHL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblAction" destination="viQ-Df-9Tn" id="hYI-ee-S3F"/>
                         <outlet property="lblResult" destination="7Uf-Yh-l4V" id="RKP-6j-A6x"/>
                         <outlet property="questionField" destination="HCh-e4-Ff3" id="the-CW-qgd"/>
                     </connections>
